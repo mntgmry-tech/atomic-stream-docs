@@ -30,7 +30,7 @@ The example uses these variables (full list in `.env.example`):
 
 - `SVM_PRIVATE_KEY` (required)
 - `PUBLIC_HTTP_BASE_URL` (default `https://x402.atomicstream.net`)
-- `X402_SCHEMA_PATH` (default `/v1/schema/stream/mempool-sniff`)
+- `X402_SCHEMA_PATH` (default `/v1/schema/stream/mempool-sniff`; set to `/v2/schema/stream/<id>` for v2)
 - `RENEW_METHOD` (`http` or `inband`)
 - `WATCH_ACCOUNTS`, `WATCH_PROGRAMS`
 - `EVENT_FORMAT`, `INCLUDE_ACCOUNTS`, `INCLUDE_TOKEN_BALANCE_CHANGES`

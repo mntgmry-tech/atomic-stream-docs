@@ -31,13 +31,13 @@ Edit `.env` with your wallet key and stream selection:
 
 ```ini
 SVM_PRIVATE_KEY=your_base58_private_key
-X402_SCHEMA_PATH=/v1/schema/stream/mempool-sniff
+X402_SCHEMA_PATH=/v2/schema/stream/mempool-sniff
 WATCH_ACCOUNTS=4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi
 ```
 
 Notes:
 - `WATCH_ACCOUNTS` or `WATCH_PROGRAMS` is required for some streams.
-- `X402_SCHEMA_PATH` chooses the stream (see the catalog for all options).
+- `X402_SCHEMA_PATH` chooses the stream (use `/v2/...` for current, `/v1/...` for legacy).
 
 ## Step 3: Run the client
 

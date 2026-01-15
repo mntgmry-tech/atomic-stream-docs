@@ -5,11 +5,11 @@ description: x402 stream endpoints, pricing, and required inputs.
 
 # Stream Catalog
 
-All paths are versioned. Examples below use `v1`.
+All paths are versioned. Use `<version>` to choose `v2` (current) or `v1` (legacy).
 
 ## Common connection flow
 
-1. `GET /v1/schema/stream/<id>` (paywalled)
+1. `GET /<version>/schema/stream/<id>` (paywalled)
 2. Extract `websocketEndpoint` from the JSON response
 3. Connect to the WebSocket URL (includes `?t=<token>`)
 
@@ -18,7 +18,7 @@ All paths are versioned. Examples below use `v1`.
 Optional WebSocket query param for output format:
 
 ```
-wss://x402.atomicstream.net/v1/stream/mempool-sniff?t=<token>&format=enhanced
+wss://x402.atomicstream.net/<version>/stream/mempool-sniff?t=<token>&format=enhanced
 ```
 
 Optional `setOptions` message (controls output shape):
@@ -222,9 +222,9 @@ Name: Mempool Transaction Stream
 
 Description: Processed transactions that touch specified accounts or programs before finalization.
 
-Endpoint path: `/v1/stream/mempool-sniff`
+Endpoint path: `/<version>/stream/mempool-sniff`
 
-Schema path: `/v1/schema/stream/mempool-sniff`
+Schema path: `/<version>/schema/stream/mempool-sniff`
 
 Pricing: $0.60 per minute; $3.00 per 5-minute slice.
 
@@ -242,9 +242,9 @@ Name: New Pool Early Swaps
 
 Description: First swaps in newly created pools (up to 10 per pool, processed).
 
-Endpoint path: `/v1/stream/sniper-feed`
+Endpoint path: `/<version>/stream/sniper-feed`
 
-Schema path: `/v1/schema/stream/sniper-feed`
+Schema path: `/<version>/schema/stream/sniper-feed`
 
 Pricing: $0.60 per minute; $3.00 per 5-minute slice.
 
@@ -260,9 +260,9 @@ Name: New Token Mint Feed
 
 Description: Transactions that initialize new SPL or Token-2022 mints.
 
-Endpoint path: `/v1/stream/new-mints`
+Endpoint path: `/<version>/stream/new-mints`
 
-Schema path: `/v1/schema/stream/new-mints`
+Schema path: `/<version>/schema/stream/new-mints`
 
 Pricing: $0.30 per minute; $1.50 per 5-minute slice.
 
@@ -278,9 +278,9 @@ Name: Rug Risk Alerts
 
 Description: Token authority revocations and deployer-initiated burns (rug-risk signals).
 
-Endpoint path: `/v1/stream/rug-detection`
+Endpoint path: `/<version>/stream/rug-detection`
 
-Schema path: `/v1/schema/stream/rug-detection`
+Schema path: `/<version>/schema/stream/rug-detection`
 
 Pricing: $0.60 per minute; $3.00 per 5-minute slice.
 
@@ -296,9 +296,9 @@ Name: Wallet Activity Watchlist
 
 Description: Transactions signed by wallets on your watchlist.
 
-Endpoint path: `/v1/stream/smart-money`
+Endpoint path: `/<version>/stream/smart-money`
 
-Schema path: `/v1/schema/stream/smart-money`
+Schema path: `/<version>/schema/stream/smart-money`
 
 Pricing: $0.12 per minute; $0.60 per 5-minute slice.
 
@@ -315,9 +315,9 @@ Name: Large Transfer Alerts
 
 Description: SOL and token transfers valued in USD above the configured threshold.
 
-Endpoint path: `/v1/stream/whale-alert`
+Endpoint path: `/<version>/stream/whale-alert`
 
-Schema path: `/v1/schema/stream/whale-alert`
+Schema path: `/<version>/schema/stream/whale-alert`
 
 Pricing: $0.12 per minute; $0.60 per 5-minute slice.
 
@@ -333,9 +333,9 @@ Name: Wallet Balance Updates
 
 Description: Account updates for a wallet's SOL account and SPL/Token-2022 token accounts.
 
-Endpoint path: `/v1/stream/wallet-balance`
+Endpoint path: `/<version>/stream/wallet-balance`
 
-Schema path: `/v1/schema/stream/wallet-balance`
+Schema path: `/<version>/schema/stream/wallet-balance`
 
 Pricing: $0.03 per minute; $0.15 per 5-minute slice.
 
@@ -352,9 +352,9 @@ Name: DEX Price Ticks
 
 Description: Real-time price ticks for base/quote pairs derived from on-chain swaps.
 
-Endpoint path: `/v1/stream/token-ticker`
+Endpoint path: `/<version>/stream/token-ticker`
 
-Schema path: `/v1/schema/stream/token-ticker`
+Schema path: `/<version>/schema/stream/token-ticker`
 
 Pricing: $0.03 per minute; $0.15 per 5-minute slice.
 
@@ -370,9 +370,9 @@ Name: Liquidity Change Stream
 
 Description: Add/remove liquidity transactions for a specified pool.
 
-Endpoint path: `/v1/stream/liquidity-changes`
+Endpoint path: `/<version>/stream/liquidity-changes`
 
-Schema path: `/v1/schema/stream/liquidity-changes`
+Schema path: `/<version>/schema/stream/liquidity-changes`
 
 Pricing: $0.12 per minute; $0.60 per 5-minute slice.
 
@@ -389,9 +389,9 @@ Name: Pool Vault Updates
 
 Description: Account updates for base/quote vaults of specified pools.
 
-Endpoint path: `/v1/stream/market-depth`
+Endpoint path: `/<version>/stream/market-depth`
 
-Schema path: `/v1/schema/stream/market-depth`
+Schema path: `/<version>/schema/stream/market-depth`
 
 Pricing: $0.12 per minute; $0.60 per 5-minute slice.
 
@@ -408,9 +408,9 @@ Name: Trending Tokens Leaderboard
 
 Description: Rolling 60-second top tokens by USD volume (updates every 5s).
 
-Endpoint path: `/v1/stream/trending-leaderboard`
+Endpoint path: `/<version>/stream/trending-leaderboard`
 
-Schema path: `/v1/schema/stream/trending-leaderboard`
+Schema path: `/<version>/schema/stream/trending-leaderboard`
 
 Pricing: $0.03 per minute; $0.15 per 5-minute slice.
 
@@ -426,9 +426,9 @@ Name: Program Log Stream
 
 Description: Transactions touching specified program IDs with logs included.
 
-Endpoint path: `/v1/stream/program-logs`
+Endpoint path: `/<version>/stream/program-logs`
 
-Schema path: `/v1/schema/stream/program-logs`
+Schema path: `/<version>/schema/stream/program-logs`
 
 Pricing: $0.03 per minute; $0.15 per 5-minute slice.
 
@@ -445,9 +445,9 @@ Name: Program Error Stream
 
 Description: Failed transactions touching specified program IDs.
 
-Endpoint path: `/v1/stream/program-errors`
+Endpoint path: `/<version>/stream/program-errors`
 
-Schema path: `/v1/schema/stream/program-errors`
+Schema path: `/<version>/schema/stream/program-errors`
 
 Pricing: $0.03 per minute; $0.15 per 5-minute slice.
 
@@ -464,9 +464,9 @@ Name: Network Pulse
 
 Description: Slot status updates with TPS samples from RPC performance metrics.
 
-Endpoint path: `/v1/stream/infrastructure-pulse`
+Endpoint path: `/<version>/stream/infrastructure-pulse`
 
-Schema path: `/v1/schema/stream/infrastructure-pulse`
+Schema path: `/<version>/schema/stream/infrastructure-pulse`
 
 Pricing: $0.006 per minute; $0.03 per 5-minute slice.
 
@@ -482,9 +482,9 @@ Name: Account Data Stream
 
 Description: Account change notifications with pubkey, owner, slot, and encoded data.
 
-Endpoint path: `/v1/stream/account-data`
+Endpoint path: `/<version>/stream/account-data`
 
-Schema path: `/v1/schema/stream/account-data`
+Schema path: `/<version>/schema/stream/account-data`
 
 Pricing: $0.03 per minute; $0.15 per 5-minute slice.
 
@@ -502,9 +502,9 @@ Name: Token-2022 Extension Events
 
 Description: Token-2022 extension instructions (transfer fees, interest, hooks, etc.).
 
-Endpoint path: `/v1/stream/token2022-extensions`
+Endpoint path: `/<version>/stream/token2022-extensions`
 
-Schema path: `/v1/schema/stream/token2022-extensions`
+Schema path: `/<version>/schema/stream/token2022-extensions`
 
 Pricing: $0.12 per minute; $0.60 per 5-minute slice.
 

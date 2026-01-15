@@ -9,7 +9,7 @@ This is the canonical flow used by the example client.
 
 ## 1) Request the schema (paywalled)
 
-`GET /v1/schema/stream/<id>` returns HTTP 402 until you provide a valid x402 payment.
+`GET /<version>/schema/stream/<id>` returns HTTP 402 until you provide a valid x402 payment. Use `v2` for the current protocol or `v1` for legacy integrations, and keep the version consistent through the flow.
 
 After payment, the response includes a tokenized WebSocket URL.
 
@@ -18,7 +18,7 @@ After payment, the response includes a tokenized WebSocket URL.
 Connect to the `websocketEndpoint` returned by the schema response. The URL already includes the session token:
 
 ```
-wss://x402.atomicstream.net/v1/stream/<id>?t=<token>
+wss://x402.atomicstream.net/<version>/stream/<id>?t=<token>
 ```
 
 ## 3) Configure the stream
@@ -41,7 +41,7 @@ Send control messages to set watchlists and output options.
 
 Sessions emit renewal hints before expiration. The HTTP renewal flow is:
 
-1. `POST /v1/renew/stream/<id>` with body `{"token":"<old-token>"}`
+1. `POST /<version>/renew/stream/<id>` with body `{"token":"<old-token>"}`
 2. Receive a new token in the JSON response
 3. Send `{"op":"renew_token","token":"<new-token>"}` over the WebSocket
 
