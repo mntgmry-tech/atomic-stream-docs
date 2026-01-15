@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import llmstxt from 'vitepress-plugin-llms'
 
 export default defineConfig({
   lang: 'en-US',
@@ -20,6 +21,9 @@ export default defineConfig({
       }
     ]
   ],
+  vite: {
+    plugins: [llmstxt()]
+  },
   themeConfig: {
     siteTitle: 'AtomicStream Docs',
     nav: [
