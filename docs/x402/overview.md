@@ -12,6 +12,10 @@ AtomicStream x402 streams use HTTP 402 Payment Required responses to create shor
 - HTTP: `https://x402.atomicstream.net`
 - WebSocket: `wss://x402.atomicstream.net`
 
+## Versioned paths
+
+All schema, stream, and renew endpoints are versioned. Use `v2` for the current protocol or `v1` for legacy integrations. Keep the version consistent across schema, WebSocket, and renewal URLs.
+
 ## Time slices and pricing
 
 Pricing is listed per minute and per 5-minute slice. The session duration is provided in the `hello` message as `sliceSeconds`. Clients should read that value instead of assuming a fixed duration.
@@ -34,7 +38,7 @@ Example (values are placeholders):
 {
   "protocol": "ws402",
   "version": "1",
-  "websocketEndpoint": "wss://x402.atomicstream.net/v1/stream/<id>?t=<token>",
+  "websocketEndpoint": "wss://x402.atomicstream.net/<version>/stream/<id>?t=<token>",
   "pricing": {
     "pricePerSecond": 0,
     "currency": "<currency>",

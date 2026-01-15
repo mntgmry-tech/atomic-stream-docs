@@ -10,10 +10,10 @@ description: Watchlists, output format, and filtering options.
 - `format=raw` or `format=enhanced` to choose output format at connect time.
 - `encoding=hex` or `encoding=base64` for the `account-data` stream (default is base64).
 
-Example:
+Example (use the same `<version>` as your schema URL):
 
 ```
-wss://x402.atomicstream.net/v1/stream/account-data?t=<token>&encoding=hex
+wss://x402.atomicstream.net/<version>/stream/account-data?t=<token>&encoding=hex
 ```
 
 ## setOptions
