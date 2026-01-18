@@ -8,6 +8,9 @@ export default defineConfig({
   cleanUrls: true,
   appearance: 'force-dark',
   lastUpdated: true,
+  sitemap: {
+    hostname: 'https://docs.atomicstream.net'
+  },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#0b0d10' }],
